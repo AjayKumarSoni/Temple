@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crowd Monitoring – CrowdSutra</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="../assets/icons/favicon.svg" />
+</head>
+<body data-page="crowd">
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <main>
+      <div id="header" class="header"></div>
+      <div class="content">
+        <h2>Crowd Monitoring & Analytics</h2>
+        <div class="grid cols-3">
+          <div class="card"><div class="card-header"><div>Real-time Counter</div><span class="badge">Live</span></div><div class="card-body"><div class="kpi">1,234</div><div class="muted">Entry/Exit tracking</div></div></div>
+          <div class="card"><div class="card-header"><div>Zone Congestion</div></div><div class="card-body"><div id="map" style="height:260px"></div></div></div>
+          <div class="card"><div class="card-header"><div>Peak Time</div></div><div class="card-body"><canvas id="chart1" height="120"></canvas></div></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+    if (window.Chart) new Chart(document.getElementById('chart1'), { type:'bar', data:{ labels:['8','9','10','11','12','13','14','15','16','17','18'], datasets:[{label:'Visitors/hr', data:[120,200,340,500,620,540,480,520,460,420,380], backgroundColor:'#93c5fd'}] }});
+    if (window.L){ const m=L.map('map').setView([17.383,78.486],16); L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19}).addTo(m); L.circle([17.383,78.486],{radius:80,color:'#ef4444',fillColor:'#ef4444',fillOpacity:.3}).addTo(m); }
+  </script>
+</body>
+</html>

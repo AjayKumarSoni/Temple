@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <style>
+      .s { fill: #000; }
+    </style>
+  </defs>
+  <rect width="256" height="256" rx="56" class="s"/>
+  <g fill="#fff" transform="translate(28,28)">
+    <!-- Stylized CS monogram -->
+    <path d="M120 28c-40 0-72 32-72 72s32 72 72 72c18 0 34-6 46-17l-16-16c-8 7-18 11-30 11-27 0-48-21-48-50s21-50 48-50c12 0 22 4 30 11l16-16c-12-11-28-17-46-17z"/>
+    <path d="M152 56h-40v24h24v40h24V56z"/>
+  </g>
+</svg>

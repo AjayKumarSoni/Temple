@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Infrastructure – CrowdSutra</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../assets/js/main.js" defer></script>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="../assets/icons/favicon.svg" />
+  
+</head>
+<body data-page="infrastructure">
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <main>
+      <div id="header" class="header"></div>
+      <div class="content">
+        <h2>Infrastructure Monitoring</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <div class="card-header"><div>Device Status</div></div>
+            <div class="card-body">
+              <table class="table">
+                <tr><th>Device</th><th>Status</th></tr>
+                <tr><td>Camera #12</td><td><span class="status-dot status-red"></span>Offline</td></tr>
+                <tr><td>Sensor A7</td><td><span class="status-dot status-green"></span>OK</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div>System Health</div></div>
+            <div class="card-body"><canvas id="i1" height="120"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div>Power</div></div>
+            <div class="card-body"><canvas id="i2" height="120"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      if (!window.Chart) return;
+      const ctx1 = document.getElementById('i1');
+      const ctx2 = document.getElementById('i2');
+      if (ctx1) new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: ['00','04','08','12','16','20'],
+          datasets: [{ label:'CPU %', data:[22,30,45,62,55,40], borderColor:'#22c55e', tension:.35 }]
+        }
+      });
+      if (ctx2) new Chart(ctx2, {
+        type: 'bar',
+        data: {
+          labels: ['Solar','Battery','Grid'],
+          datasets: [{ label:'kWh', data:[120,80,160], backgroundColor:['#fde68a','#bbf7d0','#bfdbfe'] }]
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

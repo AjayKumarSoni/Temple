@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CrowdSutra – Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/icons/favicon.svg" />
+</head>
+<body data-page="dashboard">
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <main>
+      <div id="header" class="header"></div>
+      <div class="content">
+        <h2 style="margin:0 0 14px 0;">Main Dashboard</h2>
+        <div class="grid cols-4">
+          <div class="card">
+            <div class="card-header"><div>Current Crowd</div><span class="badge">Live</span></div>
+            <div class="card-body">
+              <div id="kpi-crowd" class="kpi">--</div>
+              <div class="muted">People inside precinct</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div>Today's Bookings</div><span class="badge">Synced</span></div>
+            <div class="card-body">
+              <div id="kpi-bookings" class="kpi">--</div>
+              <div class="muted">Across all darshan types</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div>Emergency Alerts</div><span id="badge-alerts" class="badge">Normal</span></div>
+            <div class="card-body">
+              <div id="kpi-alerts" class="kpi">--</div>
+              <div class="muted">Active incidents</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div>System Status</div><span class="badge success">OK</span></div>
+            <div class="card-body">
+              <div id="kpi-status" class="kpi">--</div>
+              <div class="muted">Servers, devices, networks</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid cols-2" style="margin-top:16px;">
+          <div class="card">
+            <div class="card-header"><div>Live Crowd Heat Map</div>
+              <div>
+                <button class="btn ghost">Legend</button>
+                <button class="btn ghost" onclick="location.reload()">Refresh</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div id="map"></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><div>Today's Summary</div><span class="badge">Auto</span></div>
+            <div class="card-body">
+              <canvas id="chart-today" height="140"></canvas>
+              <div class="grid cols-2" style="margin-top:12px;">
+                <div>
+                  <div class="muted">Weather Now</div>
+                  <div>31°C, Partly Cloudy</div>
+                </div>
+                <div>
+                  <div class="muted">Forecast (24h)</div>
+                  <div>Moderate Crowd</div>
+                </div>
+              </div>
+              <div style="margin-top:12px; display:flex; gap:8px;">
+                <button class="btn primary" onclick="alert('Emergency broadcast sent (demo)')">Emergency Broadcast</button>
+                <button class="btn" onclick="alert('System override armed (demo)')">System Override</button>
+                <button class="btn" onclick="alert('Maintenance mode toggled (demo)')">Maintenance Mode</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
